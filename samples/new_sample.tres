@@ -1,0 +1,12 @@
+[gd_resource type="Sample" format=1]
+
+[resource]
+
+data = { "data":ByteArray(  ), "format":"pcm8", "length":0, "packing":"raw", "stereo":false }
+stereo = false
+length = 0
+mix_rate = 44100
+loop_format = 0
+loop_begin = 0
+loop_end = 0
+
