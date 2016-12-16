@@ -557,4 +557,14 @@ func clear_all():
 	currentChapter = null
 	currentDialog = null
 	currentText = null
+	t
 	pass
+
+
+func _on_CheckBox_toggled( pressed ):
+	if(pressed):
+		get_node("VBoxContainer/HBoxContainer/GridContainer/misc/Time").show
+
+
+func _on_Time_input_event( ev ):
+	time =

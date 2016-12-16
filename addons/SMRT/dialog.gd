@@ -20,7 +20,7 @@ export var dialog_frame_height = 4
 #it defaults to this.
 var speed = float(.05)
 
-signal  finished_dialog
+signal finished_dialog
 signal answer_selected
 signal dialog_control(information)
 #Global variable to change the position of the dialog on the viewport.
@@ -38,6 +38,7 @@ var on_dialog = false
 var text
 var typewriter = true
 var enable_question
+var cinematic
 var answers
 var btn_answers
 var black_screen
@@ -49,7 +50,7 @@ var texture_width
 var info = {chapter = null, dialog = null, last_text_index = null, total_text = null, answer = null}
 
 var dimensions = {"box_rectangle": null, "text_rectangle": null, "font_size": null, "text_margin":{"left": null, "right": null, "top":null, "bottom":null}}
-
+var Time = Timer.new()
 
 onready var audio = get_node("SamplePlayer")
 	#Get the label object in which the text will be displayed to the user
@@ -92,7 +93,6 @@ func _ready():
 	hide()
 	#Reset textObj	
 	#Start the magic	
-	set_process_input(true)
 	set_process_input(true)
 	store_dimensions()
 	store_margins()
@@ -286,6 +286,7 @@ func show_text(chapter, dialog, start_at=0):
 							yield(get_tree(), "idle_frame")
 							info.last_text_index = start_at
 							yield(self,"dialog_control")
+							
 							if enable_question:
 								question(answers)
 								yield(self, "answer_selected")
@@ -333,6 +334,7 @@ func selected_answer(btn):
 	info.answer = btn
 	
 func _input(event):
+	#if(
 	if not event.is_echo() and event.is_action_pressed("ui_accept"):
 		if textObj.get_total_character_count() > textObj.get_visible_characters() and on_dialog:
 			textObj.set_visible_characters(textObj.get_total_character_count())
