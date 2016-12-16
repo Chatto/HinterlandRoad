@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Smart Scene Extender plugin for Godot engine
 It's a plugin which allows you to extend your scenes fast. 
 It will try to extend node which is selected in Scene tree. 
@@ -11,3 +12,6 @@ Here you can see how this plugin works in action: https://youtu.be/1IUD-neGurg
 
 Also keep in mind that while we are using this plugin and it should be well tested, we take no responsibility for potential damage casued by this code. You should always use Version control systems in your project.
 
+=======
+# HinterlandRoad
+>>>>>>> fc6d43a5294b6b953b6e633e993b20b209a93fea
